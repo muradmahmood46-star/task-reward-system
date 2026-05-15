@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-// Aapka asli config jo abhi aapne dhoonda:
 const firebaseConfig = {
     apiKey: "AIzaSyCPo8DYml5GDjZkeXIKai7XzYE5kvaM11A",
     authDomain: "task-reward-system.firebaseapp.com",
@@ -13,9 +12,6 @@ const firebaseConfig = {
     measurementId: "G-8BBJ9CRTW3"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Inko export karein taake App.jsx use kar sakay
 export const db = getFirestore(app);
 export const auth = getAuth(app);
