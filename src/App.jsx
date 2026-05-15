@@ -141,7 +141,7 @@ function Navbar({ user, isAdmin }) {
       </div>
 
       <div className="flex items-center gap-6">
-        <div className="hidden md:flex gap-8 mr-6 border-r-2 border-yellow-100 pr-10">
+        <div className="flex gap-8 mr-6 border-r-2 border-yellow-100 pr-10">
           <Link to="/" className="text-[11px] font-black uppercase text-[#2C2C31] hover:text-yellow-500 transition-all hover:scale-110 flex items-center gap-2 group">
             <LayoutDashboard size={14} className="group-hover:rotate-12 transition-transform" /> Dashboard
           </Link>
@@ -163,7 +163,7 @@ function Navbar({ user, isAdmin }) {
 }
 
 // ==========================================
-// 3. USER DASHBOARD (With Oval Shapes & Sequential Task Numbers)
+// 3. USER DASHBOARD
 // ==========================================
 function UserDashboard({ user, isAdmin }) {
   const [tasks, setTasks] = useState([]);
@@ -198,18 +198,16 @@ function UserDashboard({ user, isAdmin }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FDFCF6] via-white to-yellow-50 relative overflow-hidden">
-      {/* Oval Shapes like Admin Panel */}
       <div className="absolute top-20 -left-20 w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
       <div className="absolute bottom-20 -right-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-yellow-100 via-pink-100 to-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
 
       <div className="max-w-7xl mx-auto px-6 py-10 space-y-10 relative z-10">
-        {/* Hello Section with Oval */}
         <header className="relative overflow-hidden bg-white/80 backdrop-blur-sm p-10 rounded-[3rem] border-[3px] border-yellow-400 shadow-2xl animate-fadeInDown group hover:shadow-yellow-200 transition-all duration-500">
           <div className="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-yellow-300 to-orange-300 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
           <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-gradient-to-tr from-blue-300 to-purple-300 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-700"></div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center relative z-10">
+          <div className="flex flex-row justify-between items-center relative z-10">
             <div className="animate-fadeInLeft">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center animate-bounceIn">
@@ -225,7 +223,7 @@ function UserDashboard({ user, isAdmin }) {
               )}
             </div>
 
-            <div className="bg-gradient-to-br from-[#FFF9E5] via-yellow-100 to-yellow-200 px-12 py-6 rounded-[2.5rem] text-center border-2 border-yellow-500 shadow-xl z-10 mt-6 md:mt-0 hover:shadow-2xl transition-all duration-500 hover:scale-110 animate-bounceIn relative overflow-hidden group">
+            <div className="bg-gradient-to-br from-[#FFF9E5] via-yellow-100 to-yellow-200 px-12 py-6 rounded-[2.5rem] text-center border-2 border-yellow-500 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 animate-bounceIn relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
               <p className="text-[10px] font-black text-yellow-800 uppercase tracking-widest mb-1">Total Balance</p>
               <div className="flex items-center gap-3 justify-center">
@@ -237,14 +235,13 @@ function UserDashboard({ user, isAdmin }) {
           </div>
         </header>
 
-        {/* Tasks Grid with Sequential Numbers */}
-        <div className="grid md:grid-cols-3 gap-8 pt-8">
+        <div className="flex overflow-x-auto pb-8 gap-8 pt-8">
           {tasks.map((task, index) => {
             const taskNumber = index + 1;
             return (
               <div
                 key={task.id}
-                className="bg-white/90 backdrop-blur-sm p-10 pt-14 rounded-[3rem] border-[3px] border-yellow-400 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:border-yellow-500 relative group animate-fadeInUp"
+                className="w-96 flex-shrink-0 bg-white/90 backdrop-blur-sm p-10 pt-14 rounded-[3rem] border-[3px] border-yellow-400 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:border-yellow-500 relative group animate-fadeInUp"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="absolute -top-5 left-1/2 -translate-x-1/2">
@@ -306,7 +303,7 @@ function UserDashboard({ user, isAdmin }) {
 }
 
 // ==========================================
-// 4. ADMIN PANEL (With Edit + Email Limit Max 5)
+// 4. ADMIN PANEL
 // ==========================================
 function AdminPanel() {
   const [newTask, setNewTask] = useState({ title: '', points: 0 });
@@ -405,7 +402,6 @@ function AdminPanel() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
 
       <div className="max-w-6xl mx-auto space-y-8 relative z-10">
-        {/* Admin Header */}
         <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 p-10 rounded-[3rem] border-[3px] border-blue-800 shadow-2xl text-white animate-fadeInDown relative overflow-hidden group">
           <div className="absolute -top-20 -right-20 w-48 h-48 bg-white rounded-full opacity-10 group-hover:scale-150 transition-transform duration-700"></div>
           <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-yellow-300 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-700"></div>
@@ -418,8 +414,7 @@ function AdminPanel() {
           <p className="text-blue-100 font-bold text-lg relative z-10">Manage missions, rewards & admin access</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Create Task Section */}
+        <div className="grid grid-cols-2 gap-8">
           <div className="bg-white/90 backdrop-blur-sm p-10 rounded-[3rem] border-[3px] border-yellow-400 shadow-xl animate-fadeInUp hover:shadow-2xl transition-all duration-500 relative group">
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-yellow-200 rounded-full opacity-50 blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
             <h2 className="text-3xl font-black mb-8 flex items-center gap-3 text-[#2C2C31]">
@@ -457,7 +452,6 @@ function AdminPanel() {
             </form>
           </div>
 
-          {/* Admin Email Management with Limit 5 */}
           <div className="bg-white/90 backdrop-blur-sm p-10 rounded-[3rem] border-[3px] border-blue-400 shadow-xl animate-fadeInUp hover:shadow-2xl transition-all duration-500">
             <h2 className="text-3xl font-black mb-8 flex items-center gap-3 text-[#2C2C31]">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center animate-pulse">
@@ -526,7 +520,6 @@ function AdminPanel() {
           </div>
         </div>
 
-        {/* Admin Task List with Edit */}
         <div className="bg-white/90 backdrop-blur-sm p-10 rounded-[3rem] border-[3px] border-slate-200 shadow-xl animate-fadeInUp hover:shadow-2xl transition-all duration-500">
           <h2 className="text-3xl font-black mb-8 text-[#2C2C31] flex items-center gap-3">
             <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
@@ -590,8 +583,6 @@ function AdminPanel() {
                         <Edit2 size={18} />
                       </button>
                       <button
-
-
                         onClick={() => deleteTask(task.id)}
                         className="p-3 bg-red-50 text-red-500 rounded-2xl hover:bg-red-500 hover:text-white transition-all hover:scale-110"
                       >
@@ -611,6 +602,7 @@ function AdminPanel() {
     </div>
   );
 }
+
 
 // ==========================================
 // 5. MAIN APP COMPONENT
