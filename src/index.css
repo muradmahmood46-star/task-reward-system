@@ -1,14 +1,6 @@
 @import "tailwindcss";
 
-body {
-  @apply bg-slate-950 text-white;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-}
-
-/* Animations ko CSS file mein hona chahiye */
+/* Niche aapki animations */
 @keyframes slideDown {
   0% {
     transform: translateY(-100%);
